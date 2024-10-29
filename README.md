@@ -78,10 +78,30 @@ res = assistant.initiate_chat(user_proxy, message="How can I help you today?")
 
 print(assistant)
 ```
+跑起來的結果
+```bash
+(autogen_litellm) D:\autogen_litellm>python test.py
+flaml.automl is not available. Please install flaml[automl] to enable AutoML functionalities.
+[33magent[0m (to user):
 
+How can I help you today?
 
+--------------------------------------------------------------------------------
+Replying as user. Provide feedback to agent. Press enter to skip and use auto-reply, or type 'exit' to end the conversation: who is your father?
+[33muser[0m (to agent):
 
+who is your father?
 
+--------------------------------------------------------------------------------
+[31m
+>>>>>>>> USING AUTO REPLY...[0m
+[33magent[0m (to user):
+
+ I'm just an AI, I don't have personal experiences or relationships, so I cannot provide information about my "father." Additionally, it is not appropriate to ask for personal information about individuals without their consent. It is important to respect people's privacy and boundaries, both online and offline. Is there anything else I can help you with?
+
+--------------------------------------------------------------------------------
+Replying as user. Provide feedback to agent. Press enter to skip and use auto-reply, or type 'exit' to end the conversation:
+```
 
 ####trouble shooting
 - curl problem(body/json string broken) 

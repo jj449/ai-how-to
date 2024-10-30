@@ -127,7 +127,7 @@ curl 送來的 body 壞掉了。如果我們在此行之前，加上以下程式
 
 
 - IP of windows host / WSL / conda
-
+if in  WSL try to access conda in windows, can not reach since IP address problem. Just type `ipconfig` to check windows host IP , find 172.XX.XX.XX thing , then this is the IP of windows host. Access this IP from WSL will work (WSL & conda on same machine)
 
 
 

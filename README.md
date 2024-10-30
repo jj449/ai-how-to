@@ -53,7 +53,15 @@ send  curl request to litellm proxy
 you will see response from litellm proxy , ollama service , ollama model .
 10. autogen 
 install autogen : `$pip install autogen`
-write our pyhthon code to play 
+check 
+11. make API work & provide web UI
+a AP provider by Flask  check .api.py.
+web ui frontend : index.html
+
+live demo : http://118.150.145.56/
+
+
+#####write our pyhthon code to play autogen  
 ```python
 from autogen import ConversableAgent, UserProxyAgent
 

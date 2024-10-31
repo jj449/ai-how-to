@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>聊天測試 by 老高</title>
+    <script>
+
+		async function sendMessage() {
+
+            const userMessage = document.getElementById('message').value;
+            const response = await fetch('/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ message: userMessage }),
+				mode: "cors",
+				redirect: "follow", // manual, *follow, error
+				referrer: "no-referrer"
+            })
+			.then(function(response) {
+				//funny response.text() is the json we need
+				response.text().then(function (text) {
+					//alert(response.choices[0].message.content);
+					//alert(respons['choices'][0].['message'].['content']);
+					//Uncaught SyntaxError: Unexpected token '['
+					
+					document.getElementById('response').innerText = text; 
+					// Parse JSON string to JavaScript object
+					const jsonObject = JSON.parse(text)
+					// Access elements
+					console.log(jsonObject.choices[0].message.content);
+					document.getElementById('chat').innerText = jsonObject.choices[0].message.content; 
+				});
+			})
+
+        }
+
+    </script>
+</head>
+<body>
+    <h1>聊天測試 by 老高</h1>
+	<h3>This is a web ui , it's backend is litellm +　ollama API by Flask </h3>
+	<h3 style='color:blue;'>實驗測試用，未優化，回應有點慢，token放10可能會看到斷掉的答案</h3>
+	<h3 style='color:blue;'>running model is : llama2:chat(看起來他不懂中文喔)</h3>
+    <input type="text" id="message" placeholder="Type your message here">
+    <button onclick="sendMessage()">Send</button>
+	<p id="chat"></p>
+	<br>
+	<br>
+	<br>
+	完整 response json : 
+	<br>
+    <p id="response"></p>
+</body>
+</html>

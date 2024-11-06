@@ -6,11 +6,26 @@
 why? For some reason , my ollama run from conda uses CPU instead of  GPU. 
 Try to run ollama from docker , and assign this docker to use GPU.
 
-1. pull ollama & run it.
+1. pull ollama & run it. \
 `$docker pull ollama/ollama` \
- check if docker exist
+ check if docker exist \
 `$docker ps -a` \
-![alt text](image.png)
+![alt text](image.png) \
+run ollama from docker  \
+`$docker run -d --gpus=all -v ollama:/root/.ollama -p 61434:11434 --name ollama ollama/ollama` \
+this will wun ollma on default port 11434 and map to host port 61434, \
+check if docker startup correctly : \
+`$docker ps` 
+`CONTAINER ID   IMAGE           COMMAND               CREATED          STATUS          PORTS                                 NAMES
+ff59d45b5fba   ollama/ollama   "/bin/ollama serve"   18 seconds ago   Up 10 seconds   11434/tcp, 0.0.0.0:61434->61434/tcp   ollama`
+\
+the second time , better start from container \
+`$docker container run --gpus=all -p 61434:61434 ollama/ollama` \
+ollama server successfuly started , and GPU detected . \
+![alt text](image-1.png)
+
+run ollama model in docker\
+`$docker exec -it ollama ollama run llama2`
 
 2. get into the folder then create a conda env for this :
 先確認你需要的 python version (here is 3.11)

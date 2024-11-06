@@ -7,8 +7,9 @@ why? For some reason , my ollama run from conda uses CPU instead of  GPU.
 Try to run ollama from docker , and assign this docker to use GPU.
 
 1. pull ollama & run it.
-`$docker pull ollama/ollama`
-`$docker ps -a` #check if docker exist
+`$docker pull ollama/ollama` \
+ check if docker exist
+`$docker ps -a` \
 ![alt text](image.png)
 
 2. get into the folder then create a conda env for this :

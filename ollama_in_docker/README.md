@@ -1,4 +1,4 @@
-這裡紀錄一些如何建構&使用 AI model 的過程 ，供自己參考，including  environment constructing , necessary system config (linux/windows/WSL/conda...)  & python coding ...and so on 
+這裡的紀錄都比較詳細冗長，因為主要自己記錄用。 
 
 # ollama in docker 
 *環境 : windows10 + conda + docker
@@ -15,10 +15,10 @@ run ollama from docker  \
 `$docker run -d --gpus=all -v ollama:/root/.ollama -p 61434:11434 --name ollama ollama/ollama` \
 this will wun ollma on default port 11434 and map to host port 61434, \
 check if docker startup correctly : \
-`$docker ps` 
-`CONTAINER ID   IMAGE           COMMAND               CREATED          STATUS          PORTS                                 NAMES
-ff59d45b5fba   ollama/ollama   "/bin/ollama serve"   18 seconds ago   Up 10 seconds   11434/tcp, 0.0.0.0:61434->61434/tcp   ollama`
-\
+`$docker ps` \
+
+![alt text](image-2.png) \
+
 the second time , better start from container \
 `$docker container run --gpus=all -p 61434:61434 ollama/ollama` \
 ollama server successfuly started , and GPU detected . \
@@ -27,37 +27,39 @@ ollama server successfuly started , and GPU detected . \
 run ollama model in docker\
 `$docker exec -it ollama ollama run llama2`
 
-2. get into the folder then create a conda env for this :
-先確認你需要的 python version (here is 3.11)
-`$cd autogen_litellm`
-`$conda create -n autogen_litellm python=3.11`
-check if conda env created successfully ? 
-`$conda env list` 
-you should see autogen_litellm listed there .
-now you have a pytohn 3.11 env . 
-3. activate this conda env and get in 
-`$conda activate autogen_litellm`
-4. install litellm
-`$pip install litellm[proxy]`
-check litellm installation : `litellm`
-5. install ollama 
-先新增 channel 不然找不到 ollama package
-`$conda config --add channels conda-forge`
-`$conda config --set channel_priority strict`
-then install ollam 
-`$conda install ollama`
-check ollama installation : `$ollama --version`
-6. start ollama 
-`$ollama serv`
-this will make ollama server at default port 11434
-check http://localhost:11434/
-7. run/pull model from ollama
-(in activated conda : autogen_litellm)
-`$ollama run llama2:chat `
-this will download&run llama2:chat model 
-if model download & run succesfully ,you will see 'Send a message' prompt in terminal , then you can chat with model now. 
-(ollama from anaconda chanel is too old to run new model , ex: phi3 , try those models later)
-8. run ollama models from litellm
+![alt text](image-3.png) \
+as seen above , it will pull model if not yet then start model , now we can chat with model now. \
+
+Now we have a model running and serve at docker's port:61343. \
+
+2. litellm integration \
+- create conda environment ,if not yet (optional) \
+先確認你需要的 python version (here is 3.11) \
+`$cd autogen_litellm` \
+`$conda create -n autogen_litellm python=3.11` \
+check if conda env created successfully ? \
+`$conda env list` \
+you should see autogen_litellm listed there . \
+now you have a pytohn 3.11 env . \
+activate this conda env and get in \
+`$conda activate autogen_litellm`\
+install litellm if not yet \
+`$pip install litellm[proxy]` \
+check litellm installation : `litellm` \
+
+- run litellm to communicate ollama with ollma's docker port
+`litellm --api_base http://127.0.0.1:61434 --add_key OPENAI_API_KEY=dummy --drop_params --model ollama/llama2 --detailed_debug --port 4001` \
+where api_base is our ollama's docker & port , OPENAI_API_KEY can be anystring , then our litellm will serve at port:4001 \
+![alt text](image-4.png) \
+
+now we have litellm proxy runnning in conda , serve at port 4001 \
+
+3. build python code and webui \
+
+
+
+
+
 check available models in ollama
 `$ollama list`
  run ollama's model from litellm

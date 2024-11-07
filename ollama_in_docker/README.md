@@ -93,9 +93,10 @@ app.run(host='0.0.0.0', port=65401)
 
 now we got a flask service running on port 65401
 
-- frontend (index2.html)
+- frontend ([index_2.html]([ai-how-to/ollama_in_docker/templates/index_2.html at main · jj449/ai-how-to](https://github.com/jj449/ai-how-to/blob/main/ollama_in_docker/templates/index_2.html)))
 
 (by default , flask's template files are  under templates folder )
+
 
 check available models in ollama
 `$ollama list`

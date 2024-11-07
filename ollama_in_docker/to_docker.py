@@ -29,9 +29,6 @@ local_llm_config = {
     "cache_seed": None,
 }
 
-# Create the ConversableAgent and UserProxyAgent
-assistant = ConversableAgent("agent", llm_config=local_llm_config)
-user_proxy = UserProxyAgent("user", code_execution_config=False)
 
 
 

@@ -89,30 +89,23 @@ app.run(host='0.0.0.0', port=65401)
 
 ```
 
-
-
 now we got a flask service running on port 65401
 
 - frontend ([index_2.html]([templates/index_2.html at main · jj449/ai-how-to](templates/index_2.html)))
 
 (by default , flask's template files are  under templates folder )
 
-access our service by browser , and chat with model 
+access our service by browser , and chat with model
 
 ![alt text](assets/20241107_193434_image.png)
 
-
 check model process this chat by litellm response
+![alt text](image-7.png)
 
-![alt text](image-5.png)
-
-
-and check GPU usage 
+and check GPU usage
 ![alt text](image-6.png)
 
-we can see GPU usage rise up . 
-
-
+we can see GPU usage rise up .
 
 check available models in ollama
 `$ollama list`

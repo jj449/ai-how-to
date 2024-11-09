@@ -99,18 +99,19 @@ now we got a flask service running on port 65401
 
 access our service by browser , and chat with model 
 
+![alt text](assets/20241107_193434_image.png)
 
-[20241107_193434_image.png](assets/20241107_193434_image.png)
 
+check model process this chat by litellm response
 
-check model prcess this chat
-
+![alt text](image-5.png)
 
 
 and check GPU usage 
+![alt text](image-6.png)
 
+we can see GPU usage rise up . 
 
-[20241107_193332_image.png](assets/20241107_193332_image.png)
 
 
 check available models in ollama

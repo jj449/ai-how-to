@@ -24,22 +24,8 @@ Ex: curl http://localhost:11434/api/embeddings -d '{"model": "nomic-embed-text:l
 
 llama-3-taiwan-8b-instruct:latest 是基於繁體中文的大型模型語言
 
-```curl http://localhost:11434/v1/chat/complete
--H "Content-Type: application/json"
--d '{
-"model": "cwchang/llama-3-taiwan-8b-instruct:latest",
-"messages": [
-{
-"role": "system",
-"content": "你是個有用的助手."
-},
-{
-"role": "user",
-"content": "你好啊!"
-}
-]
-}'
-```
+
+`curl http://localhost:11434/v1/chat/complete -H "Content-Type: application/json" -d '{ "model": "cwchang/llama-3-taiwan-8b-instruct:latest", "messages": [ { "role": "system", "content": "你是個有用的助手." }, { "role": "user", "content": "你好啊!" } ] }'`
 
 use conda env 'autogen_litellm' previously established .
 

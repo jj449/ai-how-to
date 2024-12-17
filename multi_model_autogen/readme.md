@@ -13,7 +13,7 @@ Ex: curl http://localhost:11434/api/embeddings -d '{"model": "nomic-embed-text:l
 
 (curl in windows terminal not working, use git bash instead)
 
-![](./assets/2024-12-14-14-57-53.png)
+![](https://github.com/jj449/ai-how-to/tree/main/multi_agents_with_RAG/assets/2024-12-14-14-57-53.png)
 
 
 use conda env 'autogen_litellm' previously established .

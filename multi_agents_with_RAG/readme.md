@@ -1,6 +1,7 @@
 check basic  for ollama & litellm basic.
 
 prepare embedding model ， ex:nomic-embed-text
+
 `$ollama pull nomic-embed-text`
 
 check if model exist

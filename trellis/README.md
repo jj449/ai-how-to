@@ -55,11 +55,31 @@ should be fixed as **use explorer to copy entire vox2seq folder to ./tmp/extensi
 
 `$pip install ./tmp/extensions/vox2seq`
 
-After successfully insatlled , start trellis web interface and test , encounter error below :
+After successfully insatlled , start trellis web interface and test :
+`(trellis) D:\TRELLIS>python app.py`
+
+encounter error below :
 
 **RuntimeError: FlashAttention only supports Ampere GPUs or newer**
 
-change attn_flash to xformer :
-$set ATTN_BACKEND=xformers
+GPU型號太舊，不支援。
 
-then re-launch trellis to test ， 
+**change attn_flash to xformer** :
+**$set ATTN_BACKEND=xformers**``
+
+then re-launch trellis to test ，
+
+it works !
+
+![](assets/20250201_000802_image.png)
+
+But sometimes it will fail because Insufficient Graphics Card Memory (VRAM), 遇此情形 可先關閉 windows  task manager ，不知為何 task manager 會影響 GPU工作，但關閉task manager 後通常可以完成 3D模型產生工作。
+
+可能因為硬體效能的關係(GTX 1060 ti , 6G VRAM)，
+從 照片生成 3D模型的過程，需要幾十分鐘 (8張照片為例)。
+從 3D模型 產生  GLB 檔，又需要數十分鐘。
+
+if set ATTN_BACKEND=xformers and  run second time , encounter : 
+![alt text](image-1.png)
+
+ seems xformer need some trouble shooting ..  

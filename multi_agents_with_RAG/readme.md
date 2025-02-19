@@ -24,7 +24,6 @@ Ex: curl http://localhost:11434/api/embeddings -d '{"model": "nomic-embed-text:l
 
 llama-3-taiwan-8b-instruct:latest 是基於繁體中文的大型模型語言
 
-
 `curl http://localhost:11434/v1/chat/complete -H "Content-Type: application/json" -d '{ "model": "cwchang/llama-3-taiwan-8b-instruct:latest", "messages": [ { "role": "system", "content": "你是個有用的助手." }, { "role": "user", "content": "你好啊!" } ] }'`
 
 use conda env 'autogen_litellm' previously established .
@@ -57,3 +56,8 @@ rag indexer 會將 rag_graph/inpu folder 裡的東西 進行 初始化 .並產�
 
 garphrag index  error while    create_base_entity_graph AttributeError: 'list' object has no attribute 'on_error'
 ![](./assets/2024-12-08-10-03-08.png)
+
+以上錯誤，可以經由 upgrade graphrag 版本解決
+
+查看目前 graphrag版本 : `$pip pip show graphrag`
+升級 graphrag : `$pip install --upgrade graphrag`

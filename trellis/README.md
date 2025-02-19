@@ -78,8 +78,3 @@ But sometimes it will fail because Insufficient Graphics Card Memory (VRAM), 遇
 可能因為硬體效能的關係(GTX 1060 ti , 6G VRAM)，
 從 照片生成 3D模型的過程，需要幾十分鐘 (8張照片為例)。
 從 3D模型 產生  GLB 檔，又需要數十分鐘。
-
-if set ATTN_BACKEND=xformers and  run second time , encounter : 
-![alt text](image-1.png)
-
- seems xformer need some trouble shooting ..  

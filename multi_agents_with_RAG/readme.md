@@ -26,6 +26,12 @@ llama-3-taiwan-8b-instruct:latest 是基於繁體中文的大型模型語言
 
 `curl http://localhost:11434/v1/chat/complete -H "Content-Type: application/json" -d '{ "model": "cwchang/llama-3-taiwan-8b-instruct:latest", "messages": [ { "role": "system", "content": "你是個有用的助手." }, { "role": "user", "content": "你好啊!" } ] }'`
 
+if ollama version > 0.5 , use below api end point :
+
+`$ curl http://localhost:11434/api/chat -d '{ "model": "cwchang/llama-3-taiwan-8b-instruct:latest", "messages": [ { "role": "user", "content": "why is the sky blue?" } ] }'`
+
+*all end points check ollama doc :  [https://github.com/ollama/ollama/blob/main/docs/api.md](https://https://github.com/ollama/ollama/blob/main/docs/api.md)
+
 use conda env 'autogen_litellm' previously established .
 
 `$conda activate autogen_litellm `
@@ -42,7 +48,7 @@ input 就是要放資料(文件)的地方 。
 
 `graphrag init --root  ./rag_graph`
 
-rag indexer 會將 rag_graph/inpu folder 裡的東西 進行 初始化 .並產生 .env、settings.yaml檔案。
+rag indexer 會將 rag_graph/input folder 裡的東西 進行 初始化 .並產生 .env、settings.yaml檔案。
 
 ![](./assets/2024-12-07-14-21-43.png)
 
@@ -61,3 +67,8 @@ garphrag index  error while    create_base_entity_graph AttributeError: 'list' o
 
 查看目前 graphrag版本 : `$pip pip show graphrag`
 升級 graphrag : `$pip install --upgrade graphrag`
+
+
+after ollma upgraded to 0.5.11 , run `$graphrag index --root rag_graph`   again , encounter error below :
+
+![](assets/20250221_232932_image.png)

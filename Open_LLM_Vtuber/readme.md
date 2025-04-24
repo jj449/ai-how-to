@@ -1,6 +1,6 @@
 ## [[Open LLM Vtuber](https://https://github.com/Open-LLM-VTuber/Open-LLM-VTuber)]
 
-working example : 依據[此指引](https://[快速开始 | Open LLM Vtuber](https://docs.llmvtuber.com/docs/quick-start/))，在 windows 10 + UV環境下，可以快速安裝完成，馬上啟動開玩。本範例使用   ollama + llama3.2:latest 做LLM ，所以app運作時，須確保ollama 的 LLM有在執行中。
+working example : 依據[此指引](https://[快速开始 | Open LLM Vtuber](https://docs.llmvtuber.com/docs/quick-start/))，在 windows 10 + UV環境下，可以快速安裝完成，馬上啟動開玩。本範例使用   ollama + llama3.1:8b 做LLM ，所以app運作時，須確保ollama 的 LLM有在執行中。
 
 *注意:如果不是在本機存取，必須走 https(瀏覽器安全要求) ，因為沒有 https 的話，語音部分可能不正常。
 
@@ -11,6 +11,8 @@ vtuber 程式所在 ，ex : D:\vTuber\Open-LLM-VTuber\frontend\assets
 裡面有一個 main-DsLaT6SU.js 檔案，這裡面 line 57 有負責建立 websocket 連線的部分，IP位置是寫死的 127.0.0.1:12393 (用搜尋127.0.0.1可找到)，這裡需要修改。 當外部訪客進來時，這個 websocket連線必須指向一樣的網站且必須改為走加密才行 (DEFAULT_WS_URL -> wss://vtuber.soshow.app/ , DEFAUL_BASE_URL -> https://vtuber.soshow.app) 。 對應到內部的IP的 12393  port的工作就交給 apache 反向代理去執行。
 
 ![](assets/20250228_113903_image.png)
+
+都設置完成後，切換到程式所在根目錄  `cd D:\vTuber\Open-LLM-VTuber` ，啟動 vtube : `$uv run run_server.py`
 
 以上設置正確，即可直接從外部訪問 vtuber ，且語音、websocket 連線都正常運作。(注意檢查麥克風符號以及websocket連線提示)
 

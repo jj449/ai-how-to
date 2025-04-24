@@ -60,7 +60,7 @@ rag indexer 會將 rag1/input folder 裡的東西 進行 初始化 .並產生 .e
 2. LLM model 要選 max_tokens >= 8192為佳，ex: llama3.1:8b ，設定 max_tokens : 8191
 3. concurrent_requests 設小一點，例如 1 , 2
 
-   working example of settings.yaml 參考本木錄下 settings.yaml。
+   working example of settings.yaml 參考本目錄下 settings.yaml。
 
 ## 執行 indexing
 
@@ -71,7 +71,6 @@ better assign --config setting.yaml path here .
 (log file location : D:\autogen_litellm\rag1\logs\)
 
 indexing時相關問題，看 trouble shooting。
-
 
 #### 接下來驗證，依據不同目錄下，indexing/embedding/graphing 結果，回答不同答案。
 
@@ -97,20 +96,35 @@ graphrag query --root ./rag3 --query "小明的女友是誰?小明住在哪裡?"
 
 ![](assets/20250303_131827_image.png)
 
-以上，可以得知，雖然答案不完美，但 graphrag 針對相同的問題，的確能從不同root 目錄，回答出相對正確的答案。
+以上，可以得知，雖然答案不完美，但 graphrag 針對相同的問題，的確能從不同root 目錄，回答出各別正確的答案。
 
-#### 接下來，如何讓 graphrag 處理多種格式的檔案 in input?
-
+#### 接下來，如何讓 graphrag 處理多種格式的檔案 in input folder?
 
 #### 讓 GraphRag讀取網站內容來 indexing
 
+#### GraphRag 的 api/interface ?
 
 #### 擷取 GraphRag的有用部分，當成答案
 
+如果在 query 時指定回應格式， ex: $graphrag query --root ./rag3 --query "小明的女友是誰?小明住在哪裡?" --method global --response-type JSON
 
+則除了 stdout 以外，可看到 簡短的 JSON格式回應
 
+![](assets/20250304_105844_image.png)
 
-### trouble shooting
+#### 如何cache 問答紀錄，讓 GraphRag 不用每次都去問大模型，以加快速度?
+
+#### 關於三種 method : "local", "global", "drift"
+
+需要進行測試驗證，以決定何種 method 適合甚麼場景使用，ex:智能客服。
+
+#### 進階微調
+
+GraphRag & ollama 的一些參數 ex: concurrent_requests 、 chunl_size ， 或是ollama 的 n_ctx 等等，跟 embedding , indexing 的結果品質、queryt出來品質有關，需要進一步測試驗證。參考 :
+
+[[Ollama][Other] GraphRAG OSS LLM community support · Issue #339 · microsoft/graphrag](https://github.com/microsoft/graphrag/issues/339)
+
+## trouble shooting
 
 1. garphrag index  error while    create_base_entity_graph AttributeError: 'list' object has no attribute 'on_error'
    ![](./assets/2024-12-08-10-03-08.png)
@@ -154,5 +168,24 @@ this is all about model , corresponding max_tokens ... and so on , just make set
 
 ![](assets/20250303_104710_image.png)
 
-有找到答案。
-所以 : 把 settings.yaml 的 embedding api_base 改成 http://localhost:11434/v1 這樣是可行的? 怪了。
+1. --method global 有找到答案。
+   所以 : 把 settings.yaml 的 embedding api_base 改成 http://localhost:11434/v1 這樣是可行的?
+2. 實際上
+   `curl http://localhost:11434/v1/embeddings -H "Content-Type: application/json" -d '{ "input": ["hello", "hi"], "model": "bge-m3:latest" }'`
+   可以驗證出，v1/embeddings 這個 end point 是存在的，所以在 settings.yaml中，把 embedding 的 api_base 設定在 v1 是可以的，問題是在 從ollama返回的 embedding 結果 not compatible with oenAI format ?
+3. 其實在 local query 時，沒有答案，應該就表示 embedding 失敗的?
+4. 嘗試把 embedding  模型換成 bge-m3:latest ，再去index ，結果一樣，到底是模型問題還是 ollama 問題?
+5. model_supports_json: false ，結果一樣。
+6. model_supports_json: true ， 結果一樣。
+7. 欲改用 Xinference + embedding ，發現 windows 10無法安裝，因為其中一個套件 autoGPTQ : [windows 10 not support](https://[[BUG] Can&#39;t install with pip on Windows 10 · Issue #767 · AutoGPTQ/AutoGPTQ](https://github.com/AutoGPTQ/AutoGPTQ/issues/767))。
+   改到 WSL ubuntu 安裝 Xinference .
+   `$pip install "xinference[all]"
+
+   第一次安裝會需要一點時間(也許很多點)，因很多環境都需要下載。
+   如果實在太久了(pip resoloving depencies ...) 可以嘗試 :
+   `$pip install "xinference[all]" --use-deprecated legacy-resolver`
+
+   最後發現， upgrade pip version 安裝就正常了。(get a version that is newer than 22.0.2, it should work)
+   `$pip install --upgrade pip`
+
+*ollama 升級到 0.5.13之後， embedding 似乎就正常了。

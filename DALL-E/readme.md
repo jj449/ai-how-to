@@ -38,14 +38,38 @@ AI 模型部署、使用，已經做了很多了，大部分大同小異，就�
    到每一個 cell 去，然後給他按 執行 ，就會跑了
 
    ![](assets/20250427_173136_image.png)
-   到第4步的時候，需要 wandb.ai 的 API key
+   到第4步的時候，需要 wandb.ai 的 API key (模型在那裡，需要下載)
 8. 然後到 prompt 那哩，輸入你的 提示詞， 然後往下執行，就會生出 圖片了。
 9. GG了， out of memory....
 
    ![](assets/20250430_102625_image.png)
 
    看來玩這個還要多備點銀彈才行....
-10. 把 n_predictions = 2 降低一些看看
+10. 把模型改小一點的，
+
+    *if the notebook crashes too often you can use dalle-mini instead by uncommenting below line
+
+    DALLE_MODEL = "dalle-mini/dalle-mini/mini-1:v0"，
+
+    & 把 n_predictions = 2 降低一些看看
     prompts = [
     "A beautiful oriental girl talking on her cell phone, close-up of her face showing her big, bright eyess"
     ]
+    prompt 是一個陣列，可以同時指定多個prompts 去生成多個圖片，n_predictions是每個  prompt 生成的圖片數量。
+
+    ![](assets/20250430_105954_image.png)
+    雖然有些 error message 但還是跑完了
+
+    ![](assets/20250430_105716_image.png)
+
+    ![](assets/20250430_105743_image.png)
+
+    好吧...結果還滿慘的... 看來 模型真的滿重要的，需要裝備好一點、載入較大較好的模型才能產出比較好的結果。 至少跑出來了。。
+11. 把 promp 改一下 :
+    "A highly detailed ArtStation-style portrait of an Asian woman with bright eyes and a natural smile, ultra-realistic, 8K resolution"
+    再試一次
+    結果30秒就生成了，但還是很嚇人...
+
+    ![](assets/20250430_115128_image.png)
+
+    ![](assets/20250430_115155_image.png)

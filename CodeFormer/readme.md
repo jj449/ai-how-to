@@ -38,7 +38,8 @@ python inference_codeformer.py -w 0.7 --input_path D:\CodeFormer\inputs\whole_im
 
 ![](assets/20250430_152018_image.png)
 
-![](assets/20250430_152109_image.png)
+
+![](assets/20250430_152129_image.png)
 
 你覺得有救到嗎? 好像沒有。。也許原圖就已經太慘了..
 

@@ -1,8 +1,8 @@
 點擊以下連結，看生成的720x480影片(.webp格式)。
+ [123.webp (720×480)](https://ai.soshow.app/123.webp)
+
 
 結果還可以耶~
-
-<img style="display: block;-webkit-user-select: none;margin: auto;cursor: zoom-in;background-color: hsl(0, 0%, 90%);" src="https://ai.soshow.app/123.webp" width="384" height="256">
 
 
 wan2.1 是實測過，真正能在 GTX1060 ti  6GB VRAM 這種低配裝置上， 完成 文字產生視頻的模型 (還是 ComfyUI的功勞?)，使用者評價都很高，甚至超過一些商用模型例如 sora。

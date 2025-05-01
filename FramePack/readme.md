@@ -28,7 +28,6 @@
 
 在 terminal 的 FramePack inference 那裡，可以看見完整的運作過程
 
-
 ![](assets/20250501_132230_image.png)
 
 前端可看到經過 text encoding . vae encoding ....
@@ -36,3 +35,30 @@
 又GG了.... out of memory
 
 ![](assets/20250501_132306_image.png)
+
+set PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
+
+不支持
+
+![](assets/20250501_133921_image.png)
+
+再試一次
+
+FramePack 竟然顯示 CUDA out of memory. Tried to allocate 30.29 GiB.
+
+30.29 GB?
+
+有甚麼辦法在低 VRAM的機器上跑這個模型?
+把 GPU Inference Preserved Memory 從6改到 128，還是不行
+
+![](assets/20250501_135500_image.png)
+
+set PYTORCH_CUDA_ALLOC_CONF=max_split_size_mb:256
+
+再來一次，還是 OOM 。 顯然號稱 6GB VRAM 可以跑? 好像不行的。
+
+把 windows 虛擬記憶體調到 80G 以上，重開機，
+set TORCH_CUDA_ALLOC_CONF=max_split_size_mb:512
+
+GPU Inference Preserved Memory 一樣設到最大 128
+結果還是 OOM。 但是同樣的機器，跑 wan2.1 是可以跑出來的。

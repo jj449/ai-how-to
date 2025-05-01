@@ -1,10 +1,8 @@
-<video width="600" controls>
-  <source src="https://ai.soshow.app/123.webp" type="video/webp">
-  您的瀏覽器不支援 WebP 影片格式。
-</video>
+點擊以下圖片，看生成的720x480影片(.webp格式)。
 
+![]([assets/20250501_191328_image.png](https://[123.webp (720×480)](https://ai.soshow.app/123.webp)))
 
-
+結果還不錯耶~
 
 wan2.1 是實測過，真正能在 GTX1060 ti  6GB VRAM 這種低配裝置上， 完成 文字產生視頻的模型，使用者評價都很高，甚至超過一些商用模型例如 sora。
 

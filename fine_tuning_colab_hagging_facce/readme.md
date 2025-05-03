@@ -1,3 +1,4 @@
+
 用 Colab 跟 Hagging Face 來 fine tuning 模型
 
 這個主題比較枯燥，一般使用者也不需要知道這些細節。fine tuning 常跟RAG 拿來比對討論，簡單來說，fine tuning 會改變模型的本身，對於指定的 dataset 會有更佳的表現，RAG則不會改變 模型的本身，而是透過外加的 knowladge 強化某方面的知識。資料的準備上也有不同， fine-tuning通常要提供符合規格的 dataset format， RAG則不需要。

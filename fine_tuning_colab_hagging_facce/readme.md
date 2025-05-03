@@ -3,7 +3,7 @@
 這個主題比較枯燥，一般使用者也不需要知道這些細節。fine tuning 常跟RAG 拿來比對討論，簡單來說，fine tuning 會改變模型的本身，對於指定的 dataset 會有更佳的表現，RAG則不會改變 模型的本身，而是透過外加的 knowladge 強化某方面的知識。資料的準備上也有不同， fine-tuning通常要提供符合規格的 dataset format， RAG則不需要。
 以下是一個簡單的 使用CoLab 做 fine-tuning 實做案例。
 
-這個[notebook 在此](https://https://colab.research.google.com/drive/1F0eaLoSdNdaLsR31J7p_eDzHJD82T-jF?usp=sharing) ，可直接前往實作看看。
+這個[notebook 在此](https://colab.research.google.com/drive/1F0eaLoSdNdaLsR31J7p_eDzHJD82T-jF?usp=sharing) ，可直接前往實作看看。
 
 * **安裝必要套件**
   使用 `pip install transformers datasets`。

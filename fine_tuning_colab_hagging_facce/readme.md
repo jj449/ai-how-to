@@ -125,3 +125,6 @@ Colab很貼心 ，按下 錯誤說明 看看建議。
 
 成功地完成了 fine-tuning .
 這只是一個範例的流程，用 Colab免費版就可以跑了，但如果要對更大的模型做 fine-tuning , 你手邊的硬體資源又不夠的話，可以用 CoLab付費版，得到優先 GPU使用權，以及延長 session時間。
+
+隨著AI快速的發展，已經有很多 fine-tunning工具出現，可以幫助我們自動化 fine-tuning的過程，更簡單的完成任務。
+[Curated-Awesome-Lists/awesome-llms-fine-tuning: Explore a comprehensive collection of resources, tutorials, papers, tools, and best practices for fine-tuning Large Language Models (LLMs). Perfect for ML practitioners and researchers!](https://github.com/Curated-Awesome-Lists/awesome-llms-fine-tuning?tab=readme-ov-file)

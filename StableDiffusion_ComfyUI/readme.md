@@ -1,11 +1,11 @@
 #### prompt engineering 以 Flux 文字生圖片為例，先直接看結果
 
-第一個提示詞 :
+**第一個提示詞 :**
 The hypersonic missile broke through the sound barrier and created an air circle, shocking!
 
 ![](assets/20250505_213620_image.png)
 
-第二個提示詞 ：技術細節強化版
+**第二個提示詞 ：技術細節強化版**
 A highly detailed, ultra-realistic scene featuring a state-of-the-art hypersonic missile streaking across the sky. The missile dramatically shatters the sound barrier, sending out a brilliant, sharply defined shockwave that forms an expanding air vortex with vivid blue and white contrasts.emphasizing the engineering marvel and explosive dynamic of the moment.
 
 * **細節層面：** 強調“ultra-realistic”、“highly detailed”及“precise engineering”，讓模型關注機身細節、氣流效果、金屬質感等技術要點。
@@ -16,7 +16,7 @@ A highly detailed, ultra-realistic scene featuring a state-of-the-art hypersonic
 
 ![](assets/20250505_224051_image.png)
 
-第三個提示詞 :戲劇氣氛營造版
+**第三個提示詞 :戲劇氣氛營造版**
 In a breathtaking cinematic moment, a futuristic hypersonic missile rockets through a stormy twilight sky. Its passage breaks the sound barrier with an explosion of light and energy, leaving behind a mesmerizing, swirling ring of turbulent air mixed with ethereal hues of purple and orange. The scene exudes intense drama and awe, as if capturing a moment of pure, shocking power and futuristic wonder.
 
 * **情感與氣氛：** 以“breathtaking cinematic moment”、“intense drama”、“awe”來塑造戲劇性及視覺震撼效果。

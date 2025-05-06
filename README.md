@@ -1,6 +1,6 @@
 紀錄一些如何建構&使用 AI model 的過程 ，供自己參考，including  environment constructing , necessary system config (linux/windows/WSL/conda...)  & python coding ...and so on
 
-vtuber  [open LLM VTuber](https://https://github.com/jj449/ai-how-to/tree/main/Open%20LLM%20Vtuber)
+vtuber  [open LLM VTuber]([ai-how-to/Open_LLM_Vtuber at main · jj449/ai-how-to](https://github.com/jj449/ai-how-to/tree/main/Open_LLM_Vtuber)https://https://github.com/jj449/ai-how-to/tree/main/Open%20LLM%20Vtube)
 
 [fine-tuning with CoLab]([ai-how-to/fine_tuning_colab_hagging_facce at main · jj449/ai-how-to](https://github.com/jj449/ai-how-to/tree/main/fine_tuning_colab_hagging_facce))
 

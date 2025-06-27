@@ -1,5 +1,9 @@
 ### SimpleAutoSubs Flask API 服務建置與成功測試總結 (基於 `cu12.x` CUDA 版本)
 
+原 :  [https://github.com/SeidSmatti/SimpleAutoSubs](https://https://github.com/SeidSmatti/SimpleAutoSubs)
+
+### 原始說明 cu11.7 => 實際使用 cu12.x 編譯才會成功，執行才不會 error。
+
 這個總結涵蓋了從環境準備、程式碼修正到最終成功運行 Flask API 並透過 cURL 請求處理影片的全過程，並將其中 CUDA 相關的部分指向 `cu12.x` 版本。
 
 ---
